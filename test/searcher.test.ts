@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
-import { searchFile } from '../src/searcher.js';
+import { searchTarget } from '../src/searcher.js';
 
 let tempFile: string;
 
@@ -26,12 +26,12 @@ describe('Search', () => {
     })
 
     it('should search for a string in a file', async () => {
-        const result = await searchFile(tempFile, "Hello", () => { });
+        const result = await searchTarget(tempFile, "Hello", () => { });
         assert.strictEqual(result, true);
     });
 
     it('should search for a string not in the file', async () => {
-        const result = await searchFile(tempFile, 'ABCD', () => { });
+        const result = await searchTarget(tempFile, 'ABCD', () => { });
         assert.strictEqual(result, false);
     });
 })

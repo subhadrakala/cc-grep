@@ -2,7 +2,7 @@ import fs from "node:fs";
 import * as readline from 'readline';
 import { findMatches } from "./matcher.js";
 
-export async function searchFile(fileName: string, searchString: string, writer : (line : string) => void = console.log ) :Promise<boolean> {
+export async function searchTarget(fileName: string, searchString: string, writer : (line : string) => void = console.log ) :Promise<boolean> {
 
 const fileStream = fs.createReadStream(fileName, "utf-8");
    
