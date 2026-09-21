@@ -32,4 +32,10 @@ describe('Matcher', () => {
     const result = findMatches('Judas Priest', 'Z', options);
     assert.strictEqual(result, true);
   });
+
+   it('should return true when pattern is found with -d option', () => {
+    const result = findMatches('1234', '\d', options);
+    assert.strictEqual(result, true);
+  });
+
 });
