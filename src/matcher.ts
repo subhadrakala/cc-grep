@@ -3,12 +3,8 @@ import type { GrepOptions } from "./types.js";
 export function findMatches(line: string, searchString: string, options: GrepOptions): boolean {
     let returnValue = false;
 
-    let regex: RegExp;
-    if (options.ignoreCase) {
-        regex = new RegExp(searchString, 'i');
-    } else {
-        regex = new RegExp(searchString);
-    }
+    const regex = new RegExp(searchString, options.ignoreCase ? 'i' : '');
+
     if (regex.test(line)) {
         returnValue = true;
     }
