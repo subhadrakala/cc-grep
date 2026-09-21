@@ -1,4 +1,5 @@
 import { searchTarget } from "./searcher.js";
+import type { GrepOptions } from "./types.js";
 
 async function main() {
 
@@ -29,8 +30,9 @@ async function main() {
     }
 
     let flagAnyMatched = false;
+    const options: GrepOptions = { invert: flags.includes('-v') };
     for (let target of targets) {
-        if (await searchTarget(target, searchString)) {
+        if (await searchTarget(target, searchString, options)) {
             flagAnyMatched = true;
         }
     }

@@ -26,12 +26,14 @@ describe('Search', () => {
     })
 
     it('should search for a string in a file', async () => {
-        const result = await searchTarget(tempFile, "Hello", () => { });
+        const options = {};
+        const result = await searchTarget(tempFile, "Hello", options, () => { });
         assert.strictEqual(result, true);
     });
 
     it('should search for a string not in the file', async () => {
-        const result = await searchTarget(tempFile, 'ABCD', () => { });
+        const options = {};
+        const result = await searchTarget(tempFile, 'ABCD', options, () => { });
         assert.strictEqual(result, false);
     });
 })

@@ -1,7 +1,12 @@
-export function findMatches(line: string, searchString: string) :boolean {
+import type { GrepOptions } from "./types.js";
+
+export function findMatches(line: string, searchString: string, options: GrepOptions): boolean {
+    let returnValue = false;
     if (line.includes(searchString)) {
-       return true;
+        returnValue = true;
     }
-    
-    return false;
+    if (options.invert) {
+        returnValue = !returnValue;
+    }
+    return returnValue;
 }
