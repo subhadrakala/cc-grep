@@ -30,7 +30,7 @@ async function main() {
     }
 
     let flagAnyMatched = false;
-    const options: GrepOptions = { invert: flags.includes('-v') };
+    const options: GrepOptions = { invert: flags.includes('-v'), ignoreCase: flags.includes('-i') };
     for (let target of targets) {
         if (await searchTarget(target, searchString, options)) {
             flagAnyMatched = true;

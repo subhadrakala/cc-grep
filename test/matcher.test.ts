@@ -38,4 +38,10 @@ describe('Matcher', () => {
     assert.strictEqual(result, true);
   });
 
+  it('should return true when character exists in line with -i optionj', () => {
+    options = { ignoreCase: true }
+    const result = findMatches('Judas Priest', 'j', options);
+    assert.strictEqual(result, true);
+  });
+
 });
